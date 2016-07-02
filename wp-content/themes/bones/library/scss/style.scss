@@ -1,0 +1,32 @@
+// normalize: http://necolas.github.io/normalize.css/
+@import "partials/normalize";
+
+// Sass variables
+@import "partials/variables";
+
+// typography
+@import "partials/typography";
+
+// import mixins
+@import "partials/mixins";
+
+/*********************
+IMPORTING MODULES
+*********************/
+
+@import "modules/content";
+@import "modules/project-block";
+@import "modules/project";
+
+/*********************
+PRINT STYLESHEET
+*********************/
+@media print {
+	// styles in print.scss
+	@import "partials/print";
+
+}
+
+@import "partials/reset";
+@import "partials/base";
+@import "partials/scroll";

@@ -1,0 +1,21 @@
+.project__image {
+	display: block;
+	margin: 0 auto;	
+	height: auto;
+	width: 100%;
+	padding: $base-spacing-unit;
+}
+
+.project__image--vertical {
+	@extend .project__image;
+	@include media-query(lap-and-up) {
+		height: 100%;
+		width: auto;
+		padding: $double-spacing-unit;
+	}
+	
+}
+
+.project__counter {
+	position:absolute;
+}
