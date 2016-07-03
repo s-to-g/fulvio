@@ -26,9 +26,9 @@
 					$image7 	= get_field('image_7');
 					$image8 	= get_field('image_8');
 					$image9 	= get_field('image_9');
-					$image10 	= get_field('image_10');
-					$imageArray = array($image1, $image2, $image3, $image4, $image5, $image6, $image7, $image8, $image9, $image10);
+					$imageArray = array($image1, $image2, $image3, $image4, $image5, $image6, $image7, $image8, $image9);
 					$imageArray = array_filter($imageArray);
+					$imageArrayLength = count($imageArray);
 			?>
 
 			<main class="content" id="main" class="" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
@@ -39,11 +39,10 @@
 
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
-
-						<section class="content__inner">
+						<p class='project__counter'>0<span class="js-project__counter-item">1</span> | 0<?php echo $imageArrayLength ?></p>
 							<div id="fullpage">
 								<?php
-									for($x = 0; $x < count($imageArray); $x++) {
+									for($x = 0; $x < $imageArrayLength; $x++) {
 										$z = $x+1;
 										$vertical = get_field('image_'. $z .'_vertical');
 										$cssClass = "project__image";
@@ -54,18 +53,19 @@
 											$cssClass = "project__image--vertical";
 										}
 										if (!empty($imageArray[$x]) ) {
-											echo "<div class='section'><img class='$cssClass' src='$imageArray[$x]'  srcset='$srcset2x 2x, $srcset3x 3x'></img/><p class='project__counter'>$z | $totalImages</p></div>";
+											echo "<section class='section  js-project__section'  data-section='$z'><div class='content__inner'><img class='$cssClass' src='$imageArray[$x]'  srcset='$srcset2x 2x, $srcset3x 3x'></img/></div></section>";
 										}
 									}
 								?>
-								<div class='section'>
-									<h2><?php the_title(); ?></h2>
-									<p><?php the_content(); ?></p>
-									
+								<section class='section  js-project__section  js-no-counter'>
+									<div class="content__inner">
+										<h2><?php the_title(); ?></h2>
+										<p><?php the_content(); ?></p>
+									</div>
 								</div>
 								</div>
 
-						</section>
+
 						
 					</article>
 

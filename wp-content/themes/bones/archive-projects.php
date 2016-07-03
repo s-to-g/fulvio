@@ -46,7 +46,7 @@
 					<article  class="cf <?php echo $extra_class?>" id="post-<?php the_ID(); ?>" role="article">
 						<div class="project-block__info<?php if( get_field('image_1_vertical') ) { echo "--50";
 						} ?>">
-							<h2>
+							<h2 class="project-block__title">
 								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 							</h2>
 							<div class="project-block__secondary-info">
