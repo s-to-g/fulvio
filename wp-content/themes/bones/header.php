@@ -41,6 +41,7 @@
 	</head>
 
 	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
+		<?php include_once("library/images/symbol-defs.svg"); ?>
 
 		<div id="container">
 

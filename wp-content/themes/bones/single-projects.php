@@ -60,7 +60,7 @@
 								<section class='section  js-project__section  js-no-counter'>
 									<div class="content__inner">
 										<h2><?php the_title(); ?></h2>
-										<p><?php the_content(); ?></p>
+										<p class="project__desc"><?php the_content(); ?></p>
 									</div>
 								</div>
 								</div>

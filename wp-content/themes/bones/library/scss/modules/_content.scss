@@ -2,8 +2,11 @@
 	min-width: 300px;
 	max-width: 900px;
 	margin: 0 auto;
-	padding: 0 $base-spacing-unit;
+	padding: 0 $double-spacing-unit;
 	overflow-x: hidden;
+	@include media-query(lap-and-up) {
+		padding: 0 $base-spacing-unit;
+	}
 }
 
 .content__section {
@@ -44,4 +47,13 @@
 		font-size: 28px;
 		line-height: 130%;
 	}
+}
+
+
+.content__section-icon {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	margin-left: -16px;
+	fill: $white;
 }	
