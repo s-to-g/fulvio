@@ -53,7 +53,7 @@
 											$cssClass = "project__image--vertical";
 										}
 										if (!empty($imageArray[$x]) ) {
-											echo "<section class='section  js-project__section'  data-section='$z'><div class='content__inner'><img class='$cssClass' src='$imageArray[$x]'  srcset='$srcset2x 2x, $srcset3x 3x'></img/></div></section>";
+											echo "<section class='section  js-project__section'  data-section='$z'><div class='project__inner'><img class='$cssClass' src='$imageArray[$x]'  srcset='$srcset2x 2x'></img/></div></section>";
 										}
 									}
 								?>

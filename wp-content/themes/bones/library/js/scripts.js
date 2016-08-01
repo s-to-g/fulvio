@@ -54,8 +54,45 @@ jQuery(window).on('load resize',function($) {
 
     updateImages();
 
-});
+     /*
+    * hide header on scroll down, show on scroll up
+    */
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $jq('.header').outerHeight();
 
-    jQuery(window).on('scroll', function() {
-        console.log("scroll");
+    $jq(window).scroll(function(event){
+        didScroll = true;
     });
+
+    setInterval(function() {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }, 250);
+
+    function hasScrolled() {
+        var st = $jq(this).scrollTop();
+        
+        // Make sure they scroll more than delta
+        if(Math.abs(lastScrollTop - st) <= delta)
+            return;
+        
+        // If they scrolled down and are past the navbar, add class .nav-up.
+        // This is necessary so you never see what is "behind" the navbar.
+        if (st > lastScrollTop && st > navbarHeight){
+            // Scroll Down
+            $jq('.header').addClass('header--up');
+        } else {
+            // Scroll Up
+            if(st + $jq(window).height() < $jq(document).height()) {
+                $jq('.header').removeClass('header--up');
+            }
+        }
+        
+        lastScrollTop = st;
+    }
+
+});

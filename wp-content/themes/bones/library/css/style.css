@@ -802,30 +802,80 @@ IMPORTING MODULES
 }
 
 /* line 5, ../scss/modules/_project.scss */
+.project__inner {
+  height: 100%;
+  min-width: 300px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media only screen and (min-width: 651px) {
+  /* line 5, ../scss/modules/_project.scss */
+  .project__inner {
+    padding: 0 10px;
+  }
+}
+
+/* line 16, ../scss/modules/_project.scss */
 .project__image, .project__image--vertical {
   display: block;
   margin: 0 auto;
   height: auto;
   width: 100%;
-  padding: 10px;
+  padding: 40px 20px;
 }
 
 @media only screen and (min-width: 651px) {
-  /* line 13, ../scss/modules/_project.scss */
+  /* line 24, ../scss/modules/_project.scss */
   .project__image--vertical {
-    height: 100%;
+    height: 90%;
     width: auto;
-    padding: 20px;
+    padding: 40px;
   }
 }
 
-/* line 23, ../scss/modules/_project.scss */
+/* line 34, ../scss/modules/_project.scss */
+.project__desc {
+  text-align: justified;
+}
+
+/* line 39, ../scss/modules/_project.scss */
 .project__counter {
   position: fixed;
   bottom: 10px;
   right: 20px;
   margin: 0;
   font-size: 16px;
+}
+
+/* line 1, ../scss/modules/_header.scss */
+.header {
+  position: fixed;
+  width: 100%;
+  background: white;
+  /* fallback */
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  opacity: 0.8;
+  top: 0;
+  transition: top 0.4s ease-in-out;
+  height: 111px;
+}
+
+/* line 13, ../scss/modules/_header.scss */
+.header--up {
+  top: -111px;
+}
+
+/* line 17, ../scss/modules/_header.scss */
+.header__logo-text {
+  font-size: 21px;
+  margin: 40px 0 40px 40px;
+}
+
+/* line 22, ../scss/modules/_header.scss */
+.header__logo-link {
+  text-decoration: none;
 }
 
 /*********************
@@ -1006,26 +1056,21 @@ html, body, #container, .content {
   height: 100%;
 }
 
-/* line 27, ../scss/partials/_base.scss */
-.header {
-  display: none;
-}
-
 /*********************
 LINK STYLES
 *********************/
-/* line 35, ../scss/partials/_base.scss */
+/* line 31, ../scss/partials/_base.scss */
 a, a:visited {
   color: #000;
   /* on hover */
   /* on click */
   /* mobile tap color */
 }
-/* line 39, ../scss/partials/_base.scss */
+/* line 35, ../scss/partials/_base.scss */
 a:hover, a:focus, a:visited:hover, a:visited:focus {
   color: #0d0d0d;
 }
-/* line 49, ../scss/partials/_base.scss */
+/* line 45, ../scss/partials/_base.scss */
 a:link, a:visited:link {
   /*
   this highlights links on iPhones/iPads.
@@ -1038,23 +1083,23 @@ a:link, a:visited:link {
 /******************************************************************
 H1, H2, H3 STYLES
 ******************************************************************/
-/* line 63, ../scss/partials/_base.scss */
+/* line 59, ../scss/partials/_base.scss */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
   font-weight: 500;
 }
-/* line 66, ../scss/partials/_base.scss */
+/* line 62, ../scss/partials/_base.scss */
 h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
   text-decoration: none;
 }
 
-/* line 71, ../scss/partials/_base.scss */
+/* line 67, ../scss/partials/_base.scss */
 h1, .h1 {
   font-size: 2.5em;
   line-height: 1.333em;
 }
 
-/* line 76, ../scss/partials/_base.scss */
+/* line 72, ../scss/partials/_base.scss */
 h2, .h2 {
   font-size: 34px;
   line-height: 1.4em;
@@ -1062,24 +1107,24 @@ h2, .h2 {
   margin-bottom: 20px;
 }
 @media only screen and (min-width: 651px) {
-  /* line 76, ../scss/partials/_base.scss */
+  /* line 72, ../scss/partials/_base.scss */
   h2, .h2 {
     margin: 0;
   }
 }
 
-/* line 86, ../scss/partials/_base.scss */
+/* line 82, ../scss/partials/_base.scss */
 h3, .h3 {
   font-size: 1.125em;
 }
 @media only screen and (min-width: 770px) {
-  /* line 86, ../scss/partials/_base.scss */
+  /* line 82, ../scss/partials/_base.scss */
   h3, .h3 {
     font-size: 2.1em;
   }
 }
 
-/* line 93, ../scss/partials/_base.scss */
+/* line 89, ../scss/partials/_base.scss */
 img {
   width: 100%;
 }
@@ -1087,22 +1132,22 @@ img {
 /******************************************************************
 COLORS
 ******************************************************************/
-/* line 101, ../scss/partials/_base.scss */
+/* line 97, ../scss/partials/_base.scss */
 .bg--black {
   background: #000;
 }
 
-/* line 105, ../scss/partials/_base.scss */
+/* line 101, ../scss/partials/_base.scss */
 .bg--white {
   background: #fff;
 }
 
-/* line 109, ../scss/partials/_base.scss */
+/* line 105, ../scss/partials/_base.scss */
 .text--white {
   color: #fff;
 }
 
-/* line 113, ../scss/partials/_base.scss */
+/* line 109, ../scss/partials/_base.scss */
 .text--black {
   color: #000;
 }
