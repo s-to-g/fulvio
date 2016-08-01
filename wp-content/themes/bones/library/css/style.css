@@ -803,7 +803,6 @@ IMPORTING MODULES
 
 /* line 5, ../scss/modules/_project.scss */
 .project__inner {
-  height: 100%;
   min-width: 300px;
   max-width: 900px;
   margin: 0 auto;
@@ -816,30 +815,39 @@ IMPORTING MODULES
   }
 }
 
-/* line 16, ../scss/modules/_project.scss */
+/* line 15, ../scss/modules/_project.scss */
 .project__image, .project__image--vertical {
   display: block;
   margin: 0 auto;
   height: auto;
   width: 100%;
-  padding: 40px 20px;
+  padding: 40px 0;
+}
+@media only screen and (min-width: 651px) {
+  /* line 15, ../scss/modules/_project.scss */
+  .project__image, .project__image--vertical {
+    padding: 40px 20px;
+  }
 }
 
+/* line 26, ../scss/modules/_project.scss */
+.project__image--vertical {
+  width: 90%;
+}
 @media only screen and (min-width: 651px) {
-  /* line 24, ../scss/modules/_project.scss */
+  /* line 26, ../scss/modules/_project.scss */
   .project__image--vertical {
-    height: 90%;
-    width: auto;
+    width: 50%;
     padding: 40px;
   }
 }
 
-/* line 34, ../scss/modules/_project.scss */
+/* line 36, ../scss/modules/_project.scss */
 .project__desc {
   text-align: justified;
 }
 
-/* line 39, ../scss/modules/_project.scss */
+/* line 41, ../scss/modules/_project.scss */
 .project__counter {
   position: fixed;
   bottom: 10px;

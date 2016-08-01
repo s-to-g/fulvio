@@ -3,7 +3,6 @@
 }
 
 .project__inner {
-	height: 100%;
 	min-width: 300px;
 	max-width: 900px;
 	margin: 0 auto;
@@ -18,14 +17,17 @@
 	margin: 0 auto;	
 	height: auto;
 	width: 100%;
-	padding: $double-spacing-unit*2 $double-spacing-unit;
+	padding: $double-spacing-unit*2 0;
+	@include media-query(lap-and-up) {
+		padding: $double-spacing-unit*2 $double-spacing-unit;;
+	}
 }
 
 .project__image--vertical {
 	@extend .project__image;
+	width: 90%;
 	@include media-query(lap-and-up) {
-		height: 90%;
-		width: auto;
+		width: 50%;
 		padding: $double-spacing-unit*2;
 	}
 	
