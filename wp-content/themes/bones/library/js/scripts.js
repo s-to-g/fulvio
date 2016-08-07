@@ -4,18 +4,18 @@ jQuery(window).on('load resize',function($) {
 
     var viewport = updateViewportDimensions(),
     $jq = jQuery.noConflict(),
-    //$projectSections = document.getElementsByClassName('js-project__section');
     $projectSections = $jq('.js-project__section'),
     $counterItem = $jq('.js-project__counter-item'),
     $counter = $jq('.project__counter');
 
     /* the fullpage scroll init */
     $jq('#fullpage').fullpage({
-      scrollOverflow:true,
+      afterResize: function(){
+          $jq.fn.fullpage.reBuild();
+      },
       afterLoad: function(slideIndex, index, slideAnchor, slideIndex) {
             $projectSections.each(function() {
             var $that = $jq(this);
-            console.log($that);
             if($that.hasClass('js-no-counter') && $that.hasClass('active')) {
                 $counter.hide();
             } else if($that.hasClass('active') && !$that.hasClass('.js-no-counter')) {
@@ -25,9 +25,13 @@ jQuery(window).on('load resize',function($) {
                 }
                 $counter.show();
             }
-        });
+            });
         }
+        //responsiveWidth: 650
     });
+
+    // To enable scrollOverflow when content is too big for a section
+    //$jq.fn.fullpage.reBuild();
     
     function updateViewportDimensions() {
         var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth,y=w.innerHeight||e.clientHeight||g.clientHeight;
@@ -41,11 +45,12 @@ jQuery(window).on('load resize',function($) {
             var imageLinks = document.getElementsByClassName("js-project-block__image-link--primary");
             for(i = 0; i < imageLinks.length; i++) {
                 var linkSrc = imageLinks[i].getAttribute('data-src'),
+                imgAlt = imageLinks[i].getAttribute('data-alt'),
                 image;
                 if(!(imageLinks[i].childNodes.length > 1)) {
-                    console.log("har inga barn");
                     image = document.createElement("img");
                     image.setAttribute('src', linkSrc);
+                    image.setAttribute('alt', imgAlt);
                     imageLinks[i].appendChild(image);
                 };
             }
@@ -54,45 +59,38 @@ jQuery(window).on('load resize',function($) {
 
     updateImages();
 
-     /*
-    * hide header on scroll down, show on scroll up
+    /*
+    * fix header after intro section, only on home page
     */
-    var didScroll;
-    var lastScrollTop = 0;
-    var delta = 5;
-    var navbarHeight = $jq('.header').outerHeight();
 
-    $jq(window).scroll(function(event){
-        didScroll = true;
-    });
+    var didScroll,
+        introSection = $jq('.content__section--intro'),
+        introSectionHeight = (introSection.innerHeight() + 5),
+        body = $jq('body'),
+        header = $jq('.header');
 
-    setInterval(function() {
-        if (didScroll) {
-            hasScrolled();
-            didScroll = false;
-        }
-    }, 250);
+    if (body.hasClass('post-type-archive-projects')) {
+        header.css('top', introSectionHeight);
+        header.addClass('header--is-visible');
 
-    function hasScrolled() {
-        var st = $jq(this).scrollTop();
-        
-        // Make sure they scroll more than delta
-        if(Math.abs(lastScrollTop - st) <= delta)
-            return;
-        
-        // If they scrolled down and are past the navbar, add class .nav-up.
-        // This is necessary so you never see what is "behind" the navbar.
-        if (st > lastScrollTop && st > navbarHeight){
-            // Scroll Down
-            $jq('.header').addClass('header--up');
-        } else {
-            // Scroll Up
-            if(st + $jq(window).height() < $jq(document).height()) {
-                $jq('.header').removeClass('header--up');
+        $jq(window).scroll(function(event){
+            didScroll = true;
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                fixedHeader();
+                didScroll = false;
+            }
+        }, 50);
+
+        function fixedHeader() {
+            if (introSection.innerHeight() < $jq(window).scrollTop()) {
+                body.addClass('fixed-header');
+            } else {
+                body.removeClass('fixed-header');
             }
         }
-        
-        lastScrollTop = st;
     }
 
 });

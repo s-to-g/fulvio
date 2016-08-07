@@ -1,0 +1,6 @@
+.error {
+	margin: 80px 20px;
+	@include media-query(desk) {
+		margin: 250px 20px;
+	}	
+}

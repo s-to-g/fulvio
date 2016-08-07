@@ -36,38 +36,59 @@
 				
 				
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
+							
+							<?php if ($_GET['about']): ?>
 
-
-					<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
-						<p class='project__counter'>0<span class="js-project__counter-item">1</span> | 0<?php echo $imageArrayLength ?></p>
-							<div id="fullpage">
-								<?php
-									for($x = 0; $x < $imageArrayLength; $x++) {
-										$z = $x+1;
-										$vertical = get_field('image_'. $z .'_vertical');
-										$cssClass = "project__image";
-										$srcset2x = get_field('image_'. $z .'_2x');
-										$srcset3x = get_field('image_'. $z .'_3x');
-										$totalImages = count($imageArray);
-										if ($vertical == TRUE) {
-											$cssClass = "project__image--vertical";
-										}
-										if (!empty($imageArray[$x]) ) {
-											echo "<section class='section  js-project__section'  data-section='$z'><div class='project__inner'><img class='$cssClass' src='$imageArray[$x]'  srcset='$srcset2x 2x'></img/></div></section>";
-										}
-									}
-								?>
-								<section class='section  js-project__section  js-no-counter'>
-									<div class="content__inner">
+								<section class="section  js-project__section  js-no-counter">
+									<div class="project__about  content__inner">
 										<h2><?php the_title(); ?></h2>
-										<p class="project__desc"><?php the_content(); ?></p>
+										<div class="project__desc"><?php the_content(); ?></div>
+										<span class="project__divider"></span>
+										<ul>
+											<li><?php echo get_field('production_year'); ?></li>
+											<li><?php echo get_field('art_type'); ?></li>
+											<li><?php echo get_field('print_type'); ?></li>
+											<li><?php echo get_field('paper_type'); ?></li>
+											<li><?php echo get_field('print_format'); ?></li>
+											<li><?php echo get_field('amount_of_copies'); ?></li>
+											<li><?php echo get_field('price'); ?></li>
+										</ul>
+										<address><a class="project__request" href="mailto:castellifulvio@gmail.com">Request your copy</a></address>
+										<a class="project__view-img-link" href="<?php the_permalink() ?>">View this collection</a>
 									</div>
-								</div>
-								</div>
+
+								</section>
+
+							<?php else: ?>
+								
+								<p class='project__counter'>0<span class="js-project__counter-item">1</span> | 0<?php echo $imageArrayLength ?></p>
+								<a class="project__info" href="<?php the_permalink() ?>?about=true">Info</a>
+									<div id="fullpage">
+										<?php
+											for($x = 0; $x < $imageArrayLength; $x++) {
+												$z = $x+1;
+												$vertical = get_field('image_'. $z .'_vertical');
+												$imgAlt = get_field('image_'. $z .'_title');
+												$cssClass = "project__image";
+												$srcset2x = get_field('image_'. $z .'_2x');
+												$srcset3x = get_field('image_'. $z .'_3x');
+												$totalImages = count($imageArray);
+												if ($vertical == TRUE) {
+													$cssClass = "project__image--vertical";
+												}
+												if (!empty($imageArray[$x]) ) {
+													echo "<section class='section  js-project__section'  data-section='$z'><div class='project__inner'><img class='$cssClass' src='$imageArray[$x]'  srcset='$srcset2x 2x' alt='$imgAlt'></img/></div></section>";
+												}
+											}
+										?>
+									</div>						
+								
+							<?php endif; ?>
+
+						</article>
 
 
-						
-					</article>
 
 					<?php endwhile; ?>
 				

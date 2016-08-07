@@ -1,15 +1,13 @@
 // normalize: http://necolas.github.io/normalize.css/
 @import "partials/normalize";
 
-// Sass variables
 @import "partials/variables";
 
-// typography
 @import "partials/typography";
+@import "partials/icomoon";
 
 // import mixins
 @import "partials/mixins";
-@import "partials/icons";
 
 /*********************
 IMPORTING MODULES
@@ -19,6 +17,7 @@ IMPORTING MODULES
 @import "modules/project-block";
 @import "modules/project";
 @import "modules/header";
+@import "modules/error";
 
 /*********************
 PRINT STYLESHEET
@@ -32,3 +31,5 @@ PRINT STYLESHEET
 @import "partials/reset";
 @import "partials/base";
 @import "partials/scroll";
+@import "partials/scroll-extend";
+@import "partials/helpers";

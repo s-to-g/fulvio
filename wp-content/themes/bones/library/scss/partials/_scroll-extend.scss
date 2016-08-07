@@ -1,0 +1,19 @@
+// To enable img height 100%
+#fullpage {
+	position:relative;
+}
+
+
+// To hide fullpage.js content until script is loaded
+body[class*="single-projects"] {
+	& #fullpage {
+		display: none;
+	}
+	
+}
+
+body[class*="fp-viewing-"] {
+	& #fullpage {
+		display: block;
+	}
+}

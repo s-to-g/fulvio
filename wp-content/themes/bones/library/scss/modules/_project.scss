@@ -1,12 +1,10 @@
-#fullpage {
-	position:relative;
-}
-
 .project__inner {
+	height: 100%;
 	min-width: 300px;
 	max-width: 900px;
 	margin: 0 auto;
 	padding: 0 $double-spacing-unit;
+	position: relative;
 	@include media-query(lap-and-up) {
 		padding: 0 $base-spacing-unit;
 	}
@@ -17,25 +15,47 @@
 	margin: 0 auto;	
 	height: auto;
 	width: 100%;
-	padding: $double-spacing-unit*2 0;
-	@include media-query(lap-and-up) {
-		padding: $double-spacing-unit*2 $double-spacing-unit;;
+	padding: $double-spacing-unit*2 $base-spacing-unit;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    @include media-query(lap-and-up) {
+    	max-height: 90%;
+		width: auto;
 	}
 }
 
 .project__image--vertical {
 	@extend .project__image;
-	width: 90%;
+	padding: 0 $base-spacing-unit;
+	height: 80%;
+	width: auto;
 	@include media-query(lap-and-up) {
-		width: 50%;
-		padding: $double-spacing-unit*2;
+		height: 90%;
+		width: auto;
+		padding: $base-spacing-unit;
+
+	}
+	@media screen and (min-width: 430px) and (max-width: 671px) {
+		height: 80%;
+		width: auto;
 	}
 	
 }
 
-.project__desc {
-	text-align: justified;
+.project__about {
+	margin: 40px auto;
+	@include media-query(lap-and-up) {
+		margin: 100px auto;
+	}
+}
 
+.project__desc {
+	text-align: justify;
+	@include vendor(text-justify, inter-word);
 }
 
 .project__counter {
@@ -44,4 +64,53 @@
 	right: 20px;
 	margin: 0;
 	font-size: 16px;
+	z-index: 1;
+}
+
+.project__info {
+	position: fixed;
+	bottom: 10px;
+	left: 20px;
+	margin: 0;
+	font-size: 16px;
+	z-index: 1;
+	text-decoration: none;
+	&:hover {
+		text-decoration: line-through;
+	}
+}
+
+.project__divider {
+	width: 40px;
+	display: block;
+	border-bottom: 1px solid $black;
+	margin: 30px 0;
+}
+
+.project__view-img-link {
+	font-size:21px;
+	margin: 0;
+	width: 100%;
+	display: block;
+	border: 1px solid currentColor;
+	margin: $double-spacing-unit 0 $base-spacing-unit;
+	padding: $base-spacing-unit;
+	text-align: center;
+	text-decoration: none;
+	&:hover {
+		text-decoration: line-through;
+	}
+	@include media-query(lap-and-up) {
+		width: 280px;
+	}
+}
+
+.project__request {
+	@extend .project__view-img-link;
+	color: $white;
+	border: 1px solid $black;
+	background: $black;
+	&:link, &:visited, &:hover, &:active {
+		color: $white !important;
+	}
 }

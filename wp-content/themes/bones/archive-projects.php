@@ -16,13 +16,11 @@
 
 			<main class="content" id="main" role="main" itemscope itemprop="mainContentOfPage">
 
-				<section class="content__section bg--black">
+				<section class="content__section--intro">
 					<p class="content__section-heading  text--white">Nòmade</p>
-					<svg class="content__section-icon  icon">
-						<use xlink:href="#icon-arrow--down"></use>
-					</svg>
+					<span class="icon-arrow_down  content__section-icon"></span>
 				</section>
-				<section class="content__section bg--white">
+				<section class="content__section">
 					<p class="content__section-text">
 						Nòmade is a constatly evolving collection of prints. Each of these represents a journey. Nomade explores the concept of transormation and the word development. It investigates cultures, landscapes and the relation between man and time. Nomade is not meant to answer any question. Nomade is a remix of arts.
 					</p>
@@ -54,27 +52,23 @@
 							</h2>
 							<div class="project-block__secondary-info">
 								<h3 class="project-block__link">
-									<a href="<?php the_permalink() ?>">View this collection
-										<svg class="project-block__icon  icon">
-											<use xlink:href="#icon-arrow--right"></use>
-										</svg>
+									<a href="<?php the_permalink() ?>">View the collection <span class="project-block__icon  icon-arrow_right  hidden--palm"></span>
 									</a>
 								</h3><!--
 								--><h3 class="project-block__link">
-									<a href="<?php the_permalink() ?>">About the journey
-										<svg class="project-block__icon  icon">
-											<use xlink:href="#icon-arrow--right"></use>
-										</svg>
+									<!--<a href="<?php the_permalink() ?><#slide-desc">-->
+									<a href="<?php the_permalink() ?>?about=true">
+										About the journey <span class="project-block__icon  icon-arrow_right  hidden--palm"></span>
 									</a>
 									</h3><!--
 							--><a class="project-block__image-link--secondary" href="<?php the_permalink() ?>" rel="bookmark" 	 title="<?php the_title_attribute(); ?>">
-									<img class="project-block__image" src="<?php if( get_field('image_2') ): ?><?php the_field('image_2')?><?php endif; ?>" srcset="<?php if( get_field('image_2_2x') ): ?><?php the_field('image_2_2x')?> 2x<?php endif; ?><?php if( get_field('image_2_3x') ): ?>, <?php the_field('image_2_3x')?> 3x<?php endif; ?>">
+									<img class="project-block__image" alt="<?php the_field('image_2_title')?>" src="<?php if( get_field('image_2') ): ?><?php the_field('image_2')?><?php endif; ?>" srcset="<?php if( get_field('image_2_2x') ): ?><?php the_field('image_2_2x')?> 2x<?php endif; ?><?php if( get_field('image_2_3x') ): ?>, <?php the_field('image_2_3x')?> 3x<?php endif; ?>">
 								</a>
 							</div><!--
 							--></div><!--
 							--><div class="project-block__image-wrapper<?php if( get_field('image_1_vertical') ) { echo "--50";
 							} ?>">
-								<a class="project-block__image-link--primary  js-project-block__image-link--primary" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" data-src="<?php if( get_field('image_1') ): ?><?php the_field('image_1')?><?php endif; ?>">
+								<a class="project-block__image-link--primary  js-project-block__image-link--primary" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" data-alt="<?php if( get_field('image_1_title') ): ?><?php the_field('image_1_title')?><?php endif; ?>" data-src="<?php if( get_field('image_1') ): ?><?php the_field('image_1')?><?php endif; ?>">
 								</a>
 							</div>
 					</article>

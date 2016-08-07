@@ -1,0 +1,13 @@
+.hidden--palm {
+	display: none;
+	@include media-query(lap-and-up) {
+		display: inline-block;
+	}
+}
+
+.hidden--lap-and-up {
+	display: inline-block;
+	@include media-query(lap-and-up) {
+		display: none;
+	}
+}

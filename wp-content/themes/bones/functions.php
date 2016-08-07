@@ -253,6 +253,9 @@ function prefix_downloads_front_page( $query ) {
 }
 add_action( 'pre_get_posts', 'prefix_downloads_front_page' );
 
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' ); 
+
 
 
 add_action('wp_enqueue_scripts', 'bones_fonts');
