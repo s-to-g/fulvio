@@ -61,28 +61,31 @@
 								</section>
 
 							<?php else: ?>
-								
+							
 								<p class='project__counter'>0<span class="js-project__counter-item">1</span> | 0<?php echo $imageArrayLength ?></p>
 								<a class="project__info" href="<?php the_permalink() ?>?about=true">Info</a>
-									<div id="fullpage">
-										<?php
-											for($x = 0; $x < $imageArrayLength; $x++) {
-												$z = $x+1;
-												$vertical = get_field('image_'. $z .'_vertical');
-												$imgAlt = get_field('image_'. $z .'_title');
-												$cssClass = "project__image";
-												$srcset2x = get_field('image_'. $z .'_2x');
-												$srcset3x = get_field('image_'. $z .'_3x');
-												$totalImages = count($imageArray);
-												if ($vertical == TRUE) {
-													$cssClass = "project__image--vertical";
-												}
-												if (!empty($imageArray[$x]) ) {
-													echo "<section class='section  js-project__section'  data-section='$z'><div class='project__inner'><img class='$cssClass' src='$imageArray[$x]'  srcset='$srcset2x 2x' alt='$imgAlt'></img/></div></section>";
-												}
+
+								<div class="loader"></div>
+
+								<div id="fullpage">
+									<?php
+										for($x = 0; $x < $imageArrayLength; $x++) {
+											$z = $x+1;
+											$vertical = get_field('image_'. $z .'_vertical');
+											$imgAlt = get_field('image_'. $z .'_title');
+											$cssClass = "project__image";
+											$srcset2x = get_field('image_'. $z .'_2x');
+											$srcset3x = get_field('image_'. $z .'_3x');
+											$totalImages = count($imageArray);
+											if ($vertical == TRUE) {
+												$cssClass = "project__image--vertical";
 											}
-										?>
-									</div>						
+											if (!empty($imageArray[$x]) ) {
+												echo "<section class='section  js-project__section'  data-section='$z'><div class='project__inner'><img class='$cssClass' src='$imageArray[$x]'  srcset='$srcset2x 2x' alt='$imgAlt'></img/></div></section>";
+											}
+										}
+									?>
+								</div>						
 								
 							<?php endif; ?>
 

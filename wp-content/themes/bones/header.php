@@ -47,7 +47,7 @@
 
 			<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
-				<div id="header__inner" class="wrap cf">
+				<div class="header__inner wrap cf">
 
 					<p class="header__logo-text" itemscope itemtype="http://schema.org/Organization"><a href="<?php echo home_url(); ?>" class="header__logo-link" rel="nofollow">Fulvio Castelli</a></p>
 					<address><a class="header__email" href="mailto:castellifulvio@gmail.com">E-mail</a></address>

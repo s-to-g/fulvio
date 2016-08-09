@@ -193,11 +193,6 @@ function bones_theme_support() {
 	    )
 	);
 
-	// rss thingy
-	add_theme_support('automatic-feed-links');
-
-	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
-
 	// adding post format support
 	add_theme_support( 'post-formats',
 		array(

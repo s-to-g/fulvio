@@ -16,4 +16,8 @@ body[class*="fp-viewing-"] {
 	& #fullpage {
 		display: block;
 	}
+
+	& .loader {
+		display: none;
+	}
 }
