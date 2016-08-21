@@ -8,6 +8,10 @@
 	}
 }
 
+.project-block__title {
+	font-weight: bold;
+}
+
 .project-block--right {
 	@extend %project-block;
 }
@@ -101,13 +105,13 @@
 		top: 2px;
 		margin-left: 0;
 		opacity:0;
-		visibility: none;
 		@include vendor(transition, all 0.2s ease-in);
 }
 
 .project-block__link {
 	font-size:21px;
 	margin:0;
+	font-weight: lighter;
 	@include media-query(palm) {
 		width:100%;
 		display: inline-block;

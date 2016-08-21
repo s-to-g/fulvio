@@ -18,7 +18,7 @@
 
 				<section class="content__section--intro">
 					<p class="content__section-heading  text--white">Nòmade</p>
-					<span class="icon-arrow_down  content__section-icon"></span>
+					<span class="icon-arrow_down  content__section-icon  js-content__section-icon"></span>
 				</section>
 				<section class="content__section">
 					<p class="content__section-text">

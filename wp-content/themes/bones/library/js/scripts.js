@@ -1,14 +1,11 @@
+var $jq = jQuery.noConflict();
 
+jQuery(window).on('load',function($) {
 
-jQuery(window).on('load resize',function($) {
-
-    var viewport = updateViewportDimensions(),
-    $jq = jQuery.noConflict(),
-    $projectSections = $jq('.js-project__section'),
+    var $projectSections = $jq('.js-project__section'),
     $counterItem = $jq('.js-project__counter-item'),
     $counter = $jq('.project__counter');
-
-    /* the fullpage scroll init */
+        /* the fullpage scroll init */
     $jq('#fullpage').fullpage({
       afterResize: function(){
           $jq.fn.fullpage.reBuild();
@@ -29,6 +26,11 @@ jQuery(window).on('load resize',function($) {
         }
         //responsiveWidth: 650
     });
+});
+
+jQuery(window).on('load resize',function($) {
+
+    var viewport = updateViewportDimensions();
 
     // To enable scrollOverflow when content is too big for a section
     //$jq.fn.fullpage.reBuild();
@@ -65,7 +67,7 @@ jQuery(window).on('load resize',function($) {
 
     var didScroll,
         introSection = $jq('.content__section--intro'),
-        introSectionHeight = (introSection.innerHeight() + 5),
+        introSectionHeight = (introSection.innerHeight()),
         body = $jq('body'),
         header = $jq('.header');
 
@@ -92,5 +94,11 @@ jQuery(window).on('load resize',function($) {
             }
         }
     }
+
+    var  scrollDownArrow = $jq('.js-content__section-icon');
+    scrollDownArrow.on('click', function() {
+        $jq('body,html').stop().animate({ scrollTop: introSectionHeight+5}, 1000);
+        return false;
+    });
 
 });

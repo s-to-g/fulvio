@@ -51,6 +51,8 @@ $header-height: 45px;
 .header {
   .fixed-header & {
     position: fixed;
-    top: 0 !important;
+    top: -2px !important;
+    transform: translateZ(0);
+    webkit-transform: translateZ(0);
   }
 }

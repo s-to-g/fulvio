@@ -18,6 +18,7 @@
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="description" content="Nòmade is a constatly evolving collection of prints. Each of these represents a journey. Nomade explores the concept of transormation and the word development. It investigates cultures, landscapes and the relation between man and time. Nomade is not meant to answer any question. Nomade is a remix of arts." />
+		<meta name="keywords" content="Nòmade,prints,collection,Fulvio Castelli,art" />
 
 		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
 		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
