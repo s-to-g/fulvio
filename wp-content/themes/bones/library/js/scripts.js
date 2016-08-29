@@ -5,7 +5,7 @@ jQuery(window).on('load',function($) {
     var $projectSections = $jq('.js-project__section'),
     $counterItem = $jq('.js-project__counter-item'),
     $counter = $jq('.project__counter');
-        /* the fullpage scroll init */
+    /* the fullpage scroll init */
     $jq('#fullpage').fullpage({
       afterResize: function(){
           $jq.fn.fullpage.reBuild();
@@ -24,16 +24,12 @@ jQuery(window).on('load',function($) {
             }
             });
         }
-        //responsiveWidth: 650
     });
 });
 
 jQuery(window).on('load resize',function($) {
 
     var viewport = updateViewportDimensions();
-
-    // To enable scrollOverflow when content is too big for a section
-    //$jq.fn.fullpage.reBuild();
     
     function updateViewportDimensions() {
         var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth,y=w.innerHeight||e.clientHeight||g.clientHeight;
