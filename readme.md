@@ -5,8 +5,12 @@ A website created for the artist Fulvio Castelli, to display the artwork of his 
 1.0
 
 ## Tech ##
-The website is buildt upon the CMS [Wordpress](https://wordpress.com/ ) with the bare starter theme [Bones](http://themble.com/bones/ ).
+The website uses a number of open source project to work properly:
+* [Wordpress](https://wordpress.com/ ) 
+* [Bones](http://themble.com/bones/ )
+* [jQuery](https://jquery.com/)
+* [fullPage.js](http://alvarotrigo.com/fullPage/)
 
 
 ## Licence ##
-GPL
+MIT
